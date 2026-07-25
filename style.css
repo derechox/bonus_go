@@ -1,0 +1,431 @@
+/* ===========================
+   BONUS GO V2
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#111827;
+    color:#fff;
+    min-height:100vh;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+header{
+    text-align:center;
+    padding:25px;
+    background:transparent;
+}
+
+header h1{
+    font-size:36px;
+    margin-bottom:8px;
+}
+
+header p{
+    color:#f3f4f6;
+    font-size:16px;
+}
+
+/* ===========================
+   CONTENIDO
+=========================== */
+
+main{
+    width:95%;
+    max-width:1200px;
+    margin:30px auto;
+}
+
+/* ===========================
+   BOTÓN NUEVO DESAFÍO
+=========================== */
+
+#nuevoDesafio{
+    display:block;
+    margin:0 auto 30px;
+    padding:15px 35px;
+    border:none;
+    border-radius:12px;
+    background:#16a34a;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+#nuevoDesafio:hover{
+    background:#15803d;
+    transform:translateY(-2px);
+}
+
+/* ===========================
+   TARJETAS
+=========================== */
+
+#contenedorDesafios{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:25px;
+}
+
+.tarjeta{
+    width:330px;
+    max-width:90%;
+    background:#1f2937;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 10px 25px rgba(0,0,0,.35);
+}
+
+.tarjeta h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.tarjeta p{
+    margin:10px 0;
+    font-size:16px;
+}
+
+/* ===========================
+   BARRA PROGRESO
+=========================== */
+
+.barra{
+    width:100%;
+    height:18px;
+    background:#374151;
+    border-radius:20px;
+    overflow:hidden;
+    margin:15px 0;
+}
+
+.progreso{
+    height:100%;
+    width:0%;
+    background:#22c55e;
+    transition:.3s;
+}
+
+/* ===========================
+   BOTONES + Y -
+=========================== */
+
+.controles{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin:20px 0;
+}
+
+.controles button {
+
+    width: 55px;
+    height: 55px;
+
+    font-size: 34px;
+
+    font-weight: bold;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+}
+
+.controles button:hover{
+    transform:scale(1.08);
+}
+
+/* ===========================
+   BOTONES TARJETA
+=========================== */
+
+.tarjeta button{
+    width:100%;
+    border:none;
+    border-radius:10px;
+    padding:12px;
+    margin-top:12px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.tarjeta button:not(.eliminar){
+    background:#2563eb;
+    color:white;
+}
+
+.tarjeta button:not(.eliminar):hover{
+    background:#1d4ed8;
+}
+
+.eliminar{
+    background:#dc2626;
+    color:white;
+}
+
+.eliminar:hover{
+    background:#b91c1c;
+}
+
+/* ===========================
+   MODAL
+=========================== */
+
+#modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.oculto{
+    display:none !important;
+}
+
+.modal-contenido{
+    width:95%;
+    max-width:600px;
+    background:#1f2937;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 20px 40px rgba(0,0,0,.45);
+}
+
+.modal-contenido h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.modal-contenido h3{
+    margin:20px 0 15px;
+    color:#22c55e;
+}
+
+.grupo{
+    margin-bottom:18px;
+}
+
+.grupo label{
+    display:block;
+    margin-bottom:8px;
+}
+
+.grupo input{
+    width:100%;
+}
+
+/* ===========================
+   INPUTS
+=========================== */
+
+input{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:10px;
+    background:#374151;
+    color:white;
+    font-size:15px;
+}
+
+input:focus{
+    outline:2px solid #22c55e;
+}
+
+/* ===========================
+   ETAPAS
+=========================== */
+
+#listaEtapas{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    margin-top:15px;
+}
+
+.etapa{
+    background:#111827;
+    border:1px solid #374151;
+    border-radius:14px;
+    padding:12px;
+}
+
+.etapa h4{
+    margin-bottom:15px;
+    color:#22c55e;
+}
+
+.fila{
+    display:flex;
+    gap:15px;
+}
+
+.campo{
+    flex:1;
+}
+
+.campo label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+}
+
+/* ===========================
+   BOTÓN AGREGAR ETAPA
+=========================== */
+
+.btn-verde{
+    width:100%;
+    margin-top:20px;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#16a34a;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.btn-verde:hover{
+    background:#15803d;
+}
+
+/* ===========================
+   BOTONES MODAL
+=========================== */
+
+.botones-modal{
+    display:flex;
+    gap:15px;
+    margin-top:25px;
+}
+
+.botones-modal button{
+    flex:1;
+    border:none;
+    border-radius:12px;
+    padding:14px;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.btn-guardar{
+    background:#2563eb;
+}
+
+.btn-guardar:hover{
+    background:#1d4ed8;
+}
+
+.btn-cancelar{
+    background:#dc2626;
+}
+
+.btn-cancelar:hover{
+    background:#b91c1c;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:600px){
+
+    .fila{
+        flex-direction:column;
+    }
+
+    .tarjeta{
+        width:95%;
+    }
+
+    .botones-modal{
+        flex-direction:column;
+    }
+
+}
+
+/* Estados del desafío */
+
+
+.tarjeta.inicio{
+
+    border-left: 6px solid #555;
+
+}
+
+
+
+.tarjeta.nivel2{
+
+    border-left: 6px solid #4caf50;
+
+}
+
+
+
+.tarjeta.nivel3{
+
+    border-left: 6px solid #ffc107;
+
+}
+
+
+
+.tarjeta.completo{
+
+    border-left: 6px solid #00c853;
+
+    box-shadow: 0 0 15px rgba(0,200,83,0.5);
+
+}
+
+/* Colores barra de progreso por etapa */
+
+
+.progreso.barra-inicio{
+
+    background:#4a90e2;
+
+}
+
+
+
+.progreso.barra-primera{
+
+    background:#66bb6a;
+
+}
+
+
+
+.progreso.barra-avanzada{
+
+    background:#ffc107;
+
+}
+
+
+
+.progreso.barra-completa{
+
+    background:#00c853;
+
+}

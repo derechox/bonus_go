@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bonus Go</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>🚗 Bonus Go</h1>
+
+    <p>Gestor de desafíos de viajes</p>
+
+</header>
+
+<main>
+
+    <button id="nuevoDesafio">
+        ➕ Nuevo desafío
+    </button>
+
+    <section id="contenedorDesafios"></section>
+
+</main>
+
+<!-- ===========================
+        MODAL DESAFÍO
+=========================== -->
+
+<div id="modal" class="oculto">
+
+    <div class="modal-contenido">
+
+        <h2 id="tituloModal">Nuevo desafío</h2>
+
+        <div class="grupo">
+
+            <label>🕒 Hora inicio</label>
+
+            <input
+                id="horaInicio"
+                type="time">
+
+        </div>
+
+        <div class="grupo">
+
+            <label>🕒 Hora fin</label>
+
+            <input
+                id="horaFin"
+                type="time">
+
+        </div>
+
+        <hr>
+
+        <h3>Etapas del desafío</h3>
+
+        <div id="listaEtapas">
+
+            <div class="etapa">
+
+                <h4>Etapa 1</h4>
+
+                <div class="fila">
+
+                    <div class="campo">
+
+                        <label>🚗 Viajes</label>
+
+                        <input
+                            class="viajesEtapa"
+                            type="number"
+                            min="1"
+                            placeholder="Ej: 7">
+
+                    </div>
+
+                    <div class="campo">
+
+                        <label>💰 Premio</label>
+
+                        <input
+                            class="premioEtapa"
+                            type="number"
+                            min="0"
+                            placeholder="Ej: 4500">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button
+            type="button"
+            id="agregarEtapa"
+            class="btn-verde">
+
+            ➕ Agregar etapa
+
+        </button>
+
+        <div class="botones-modal">
+
+            <button
+                type="button"
+                id="guardar"
+                class="btn-guardar">
+
+                💾 Guardar
+
+            </button>
+
+            <button
+                type="button"
+                id="cerrar"
+                class="btn-cancelar">
+
+                ❌ Cancelar
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
