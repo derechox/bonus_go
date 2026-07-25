@@ -1139,4 +1139,3 @@ console.log(
     "Desafíos cargados:",
     desafios.length
 );
-```
