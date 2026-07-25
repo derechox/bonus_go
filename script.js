@@ -1,4 +1,3 @@
-```javascript
 // ==========================================
 // BONUS GO
 // Sistema de desafíos con etapas
