@@ -1139,3 +1139,234 @@ console.log(
     "Desafíos cargados:",
     desafios.length
 );
+
+// ==========================================
+// BLOC DE NOTAS
+// ==========================================
+
+const CLAVE_NOTAS = "blocNotas";
+
+let notas = JSON.parse(
+    localStorage.getItem(CLAVE_NOTAS)
+) || [];
+
+const modalNotas =
+document.getElementById("modalNotas");
+
+const listaNotas =
+document.getElementById("listaNotas");
+
+const botonNuevaNota =
+document.getElementById("nuevaNota");
+
+const botonCerrarNotas =
+document.getElementById("cerrarNotas");
+
+
+// Mostrar notas
+
+function mostrarNotas() {
+
+    listaNotas.innerHTML = "";
+
+
+    notas.forEach((nota, index) => {
+
+
+        listaNotas.innerHTML += `
+
+            <div class="nota">
+
+                <p>
+                    ${nota}
+                </p>
+
+
+               <div class="acciones-nota">
+
+<button
+class="btn-editar-nota"
+onclick="editarNota(${index})">
+
+    ✏️
+
+</button>
+
+
+<button
+class="btn-eliminar-nota"
+onclick="eliminarNota(${index})">
+
+    ✕
+
+</button>
+
+</div>
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+// Nueva nota
+
+botonNuevaNota.addEventListener(
+"click",
+function(){
+
+    document
+    .getElementById("popupNuevaNota")
+    .classList.remove("oculto");
+
+});
+
+// Guardar nueva nota
+
+document
+.getElementById("guardarNuevaNota")
+.addEventListener(
+"click",
+function(){
+
+    let texto =
+    document.getElementById("textoNuevaNota").value;
+
+
+    if(texto.trim()){
+
+
+        notas.push(texto);
+
+
+        localStorage.setItem(
+            CLAVE_NOTAS,
+            JSON.stringify(notas)
+        );
+
+
+        mostrarNotas();
+
+
+        document
+        .getElementById("textoNuevaNota")
+        .value = "";
+
+
+        document
+        .getElementById("popupNuevaNota")
+        .classList.add("oculto");
+
+
+    }
+
+});
+
+
+// Cancelar nueva nota
+
+document
+.getElementById("cancelarNuevaNota")
+.addEventListener(
+"click",
+function(){
+
+
+    document
+    .getElementById("textoNuevaNota")
+    .value = "";
+
+
+    document
+    .getElementById("popupNuevaNota")
+    .classList.add("oculto");
+
+
+});
+
+
+// Eliminar nota
+
+function eliminarNota(index){
+
+    notas.splice(
+        index,
+        1
+    );
+
+
+    localStorage.setItem(
+        CLAVE_NOTAS,
+        JSON.stringify(notas)
+    );
+
+
+    mostrarNotas();
+
+}
+
+// Editar nota
+
+function editarNota(index){
+
+    let nuevoTexto = prompt(
+        "Editar nota:",
+        notas[index]
+    );
+
+
+    if(nuevoTexto){
+
+        notas[index] = nuevoTexto;
+
+
+        localStorage.setItem(
+            CLAVE_NOTAS,
+            JSON.stringify(notas)
+        );
+
+
+        mostrarNotas();
+
+    }
+
+}
+
+
+// Abrir modal de notas
+// (lo conectaremos al botón del menú después)
+
+
+// Cerrar modal
+
+botonCerrarNotas.addEventListener(
+"click",
+function(){
+
+    modalNotas.classList.add(
+        "oculto"
+    );
+
+});
+
+// ===============================
+// ABRIR MODAL NOTAS
+// ===============================
+
+const botonNotas = document.getElementById("btnNotas");
+
+botonNotas.addEventListener(
+"click",
+function(){
+
+    modalNotas.classList.remove(
+        "oculto"
+    );
+
+});
+
+// Cargar notas al iniciar
+
+mostrarNotas();

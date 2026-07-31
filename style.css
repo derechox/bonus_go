@@ -50,16 +50,31 @@ main{
 =========================== */
 
 #nuevoDesafio{
+
     display:block;
-    margin:0 auto 30px;
+
+    flex:1;
+
+    min-width:180px;
+    max-width:340px;
+
+    margin:0;
+
     padding:15px 35px;
+
     border:none;
     border-radius:12px;
+
     background:#16a34a;
+
     color:white;
+
     font-size:18px;
+
     cursor:pointer;
+
     transition:.25s;
+
 }
 
 #nuevoDesafio:hover{
@@ -79,12 +94,19 @@ main{
 }
 
 .tarjeta{
-    width:330px;
-    max-width:90%;
+
+    width:100%;
+
+    max-width:340px;
+
     background:#1f2937;
+
     border-radius:18px;
+
     padding:22px;
+
     box-shadow:0 10px 25px rgba(0,0,0,.35);
+
 }
 
 .tarjeta h2{
@@ -360,11 +382,39 @@ input:focus{
     }
 
     .tarjeta{
+
         width:95%;
+
     }
 
     .botones-modal{
+
         flex-direction:column;
+
+    }
+
+    .barra-superior{
+
+        gap:8px;
+
+    }
+
+    .icono{
+
+        width:44px;
+
+        height:44px;
+
+        font-size:22px;
+
+    }
+
+    #nuevoDesafio{
+
+        min-width:0;
+
+        width:100%;
+
     }
 
 }
@@ -437,3 +487,403 @@ input:focus{
 
 }
 
+.barra-superior{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin:0 auto 30px;
+
+}
+
+.icono{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#f3f4f6;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    flex-shrink:0;
+
+}
+
+.icono:hover{
+
+    transform:translateY(-2px);
+
+}
+
+/* Botón eliminar notas */
+
+.btn-eliminar-nota {
+
+    border: none;
+    background: transparent;
+    color: #ff5555;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    padding: 5px;
+
+}
+
+
+.btn-eliminar-nota:active {
+
+    transform: scale(0.85);
+
+}
+
+.nota {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: #222;
+
+    margin: 8px 0;
+    padding: 10px;
+
+    border-radius: 10px;
+
+}
+
+/* ===========================
+   BLOC DE NOTAS SIMPLE
+=========================== */
+
+
+.notas-app{
+    max-width:500px;
+}
+
+
+.titulo-notas{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+
+.btn-flotante{
+
+    width:45px;
+    height:45px;
+
+    border-radius:50%;
+    border:none;
+
+    background:#22c55e;
+
+    color:white;
+
+    font-size:25px;
+
+    cursor:pointer;
+
+}
+
+
+
+.lista-notas{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+
+
+.nota{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#111827;
+
+    border:1px solid #374151;
+
+    border-radius:12px;
+
+    padding:14px;
+
+}
+
+
+
+.nota p{
+
+    margin:0;
+
+    font-size:16px;
+
+}
+
+
+
+.btn-eliminar-nota{
+
+    width:35px;
+
+    height:35px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#dc2626;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+.acciones-nota{
+    display:flex;
+    gap:8px;
+    justify-content:flex-end;
+    margin-top:10px;
+}
+
+
+.btn-editar-nota,
+.btn-eliminar-nota{
+
+    width:32px;
+    height:32px;
+
+    border:none;
+    border-radius:8px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+}
+
+
+.btn-editar-nota{
+    background:#2563eb;
+    color:white;
+}
+
+
+.btn-eliminar-nota{
+    background:#dc2626;
+    color:white;
+}
+
+/* ==========================
+   POPUP NUEVA NOTA
+========================== */
+
+.popup-nota{
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.65);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+
+}
+
+
+.popup-nota.oculto{
+
+    display:none;
+
+}
+
+
+.popup-contenido{
+
+    width:90%;
+    max-width:400px;
+
+    background:#1f2937;
+
+    border-radius:15px;
+
+    padding:20px;
+
+    color:white;
+
+}
+
+
+.popup-contenido h3{
+
+    margin-bottom:15px;
+
+}
+
+
+.popup-contenido textarea{
+
+    width:100%;
+    height:120px;
+
+    border-radius:10px;
+
+    padding:12px;
+
+    resize:none;
+
+}
+
+
+.acciones-popup{
+
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+
+    margin-top:15px;
+
+}
+
+
+.acciones-popup button{
+
+    padding:10px 15px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+}
+
+/* Caja de escritura de nueva nota */
+
+.popup-contenido textarea{
+
+    background:#111827;
+
+    color:white;
+
+    border:1px solid #374151;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+
+.popup-contenido textarea::placeholder{
+
+    color:#9ca3af;
+
+}
+
+
+/* Título nueva nota */
+
+.popup-contenido h3{
+
+    color:#ffffff;
+
+    text-align:center;
+
+    font-size:22px;
+
+}
+
+
+/* Botones del popup */
+
+#guardarNuevaNota{
+
+    background:#22c55e;
+
+    color:white;
+
+}
+
+
+#cancelarNuevaNota{
+
+    background:#374151;
+
+    color:white;
+
+}
+
+/* Botones de iconos superiores */
+
+.icono {
+
+    background:#111827;
+
+    color:white;
+
+    border:1px solid #374151;
+
+    width:45px;
+    height:45px;
+
+    border-radius:12px;
+
+    font-size:22px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+}
+
+
+.icono:hover {
+
+    background:#1f2937;
+
+}
